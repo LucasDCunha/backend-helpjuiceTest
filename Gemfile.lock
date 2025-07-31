@@ -173,6 +173,10 @@ GEM
       activesupport (= 7.1.5.1)
       bundler (>= 1.15.0)
       railties (= 7.1.5.1)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -216,6 +220,8 @@ GEM
       rspec-support (~> 3.13)
     rspec-support (3.13.4)
     securerandom (0.4.1)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -259,8 +265,10 @@ DEPENDENCIES
   pg
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
+  rails-controller-testing
   redis
   rspec-rails
+  shoulda-matchers (~> 5.3)
   sprockets-rails
   stimulus-rails
   turbo-rails

@@ -1,18 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Searches", type: :request do
-  describe "GET /index" do
+  describe "GET /" do
     it "returns http success" do
-      get "/searches/index"
+      get "/"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
-      get "/searches/create"
-      expect(response).to have_http_status(:success)
+  describe "POST /searches" do
+    it "creates a search and redirects" do
+      post "/searches", params: { text: "hello world" }
+      expect(response).to have_http_status(302)
     end
   end
-
 end
