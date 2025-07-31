@@ -1,15 +1,16 @@
-<h1>Search Something</h1>
 
-<%= form_with url: searches_path, method: :post, local: true do |f| %>
-  <%= f.text_field :text, placeholder: "Type a search term...", autofocus: true %>
-  <%= f.submit "Search" %>
-<% end %>
+<h1>Search Analytics</h1>
 
-<hr>
+<div class="container">
+  <%= form_with url: searches_path, method: :post, local: true do |f| %>
+    <%= f.text_field :text, placeholder: "Type a search term...", autofocus: true %>
+    <%= f.submit "Search" %>
+  <% end %>
 
-<h2>Popular Searches</h2>
-<ul>
-  <% @popular_searches.each do |query, count| %>
-    <li><%= query %> — <%= count %> searches</li>
+  <h2>Popular Searches</h2>
+  <ul>
+    <% @popular_searches.each do |query, count| %>
+      <li><strong><%= query %></strong> — <%= count %> searches</li>
     <% end %>
-</ul>
+  </ul>
+</div>
