@@ -12,7 +12,10 @@ class SearchesController < ApplicationController
 
     last_search = session.search_queries.last
 
-    if last_search && new_text.start_with?(last_search.text)
+    if last_search &&
+      new_text.start_with?(last_search.text) &&
+      last_search.created_at > 30.seconds.ago
+
       last_search.update(text: new_text)
     else
       session.search_queries.create(text: new_text)
