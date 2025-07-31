@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  user: postgres
+  password: admin
+
+development:
+  <<: *default
+  database: backend_helpjuicetest_development
+
+test:
+  <<: *default
+  database: backend_helpjuicetest_test
+
+production:
+  <<: *default
+  database: backend_helpjuicetest_production
+  username: backend_helpjuicetest
+  password: <%= ENV['BACKEND_HELPJUICETEST_DATABASE_PASSWORD'] %>
