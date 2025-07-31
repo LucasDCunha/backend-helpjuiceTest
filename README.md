@@ -1,24 +1,16 @@
-# README
+# Helpjuice Internship Test — Search Analytics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails-only app that tracks what users search in real-time, avoiding the pyramid problem by storing only the most complete version of each search.
 
-Things you may want to cover:
+## Features
+- No frontend JS — pure Rails form with styled HTML/CSS
+- Tracks search terms per user (IP-based)
+- Stores only the most complete query
+- Analytics page shows most popular search terms
 
-* Ruby version
+## Run locally
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+bundle install
+rails db:create db:migrate
+rails server
