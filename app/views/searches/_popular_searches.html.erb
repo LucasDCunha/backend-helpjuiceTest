@@ -1,0 +1,6 @@
+<h2>Popular Searches</h2>
+<ul>
+  <% @popular_searches.each do |query, count| %>
+    <li><strong><%= query %></strong> — <%= count %> searches</li>
+  <% end %>
+</ul>

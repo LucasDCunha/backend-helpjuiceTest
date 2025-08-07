@@ -4,13 +4,32 @@
 <div class="container">
   <%= form_with url: searches_path, method: :post, local: true do |f| %>
     <%= f.text_field :text, placeholder: "Type a search term...", autofocus: true %>
-    <%= f.submit "Search" %>
+    <button id="clear-searches-btn" class="clear-searches-btn">Clear Searches</button>
   <% end %>
 
-  <h2>Popular Searches</h2>
-  <ul>
-    <% @popular_searches.each do |query, count| %>
-      <li><strong><%= query %></strong> — <%= count %> searches</li>
-    <% end %>
-  </ul>
+  <div id="popular-searches">
+    <%= render partial: "popular_searches", locals: { popular_searches: @popular_searches } %>
+  </div>
 </div>
+
+<script>
+const clearBtn = document.getElementById("clear-searches-btn");
+
+clearBtn.addEventListener("click", () => {
+  if (!confirm("Are you sure you want to clear all searches?")) return;
+
+  fetch("/searches/reset", {
+    method: "DELETE",
+    headers: {
+      "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
+    }
+  })
+  .then(() => {
+    // Opcional: limpar a lista da interface
+    window.location.reload(); // ou você pode atualizar a lista via JS
+  })
+  .catch((err) => {
+    console.error("Erro ao limpar buscas:", err);
+  });
+});
+</script>
