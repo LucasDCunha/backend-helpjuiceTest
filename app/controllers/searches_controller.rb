@@ -28,8 +28,12 @@ class SearchesController < ApplicationController
     end
   end
 
-  def reset
+  def delete_all
     SearchQuery.delete_all
-    @popular_searches = {}
+    UserSession.delete_all
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'All records have been deleted.' }
+    end
   end
 end

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
     root 'searches#index'
     resources :searches, only: [:index, :create] do
-        delete :reset, on: :collection
+        collection do
+            delete :delete_all
+        end
     end
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -52,18 +52,18 @@ input[type="text"] {
   font-size: 16px;
 }
 
-.clear-searches-btn {
-  padding: 6px 12px;
+button.btn-danger {
+  background-color: #dc3545; /* Bootstrap-like danger red */
+  color: #fff; /* White text */
   border: none;
-  background-color: #e74c3c;
-  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-.clear-searches-btn:hover {
-  background-color: #c0392b;
+button.btn-danger:hover {
+  background-color: #c82333; /* Darker red on hover */
 }
 
 h2 {
