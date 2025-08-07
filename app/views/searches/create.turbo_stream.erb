@@ -1,0 +1,5 @@
+<turbo-stream target="popular_searches" action="update">
+  <template>
+    <%= render partial: "popular_searches", formats: [:html], locals: { popular_searches: @popular_searches } %>
+  </template>
+</turbo-stream>

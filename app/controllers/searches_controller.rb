@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
     @popular_searches = SearchQuery.group(:text).order('count_id DESC').count(:id)
   
     respond_to do |format|
-      format.js   # create.js.erb
+      format.turbo_stream
       format.html { redirect_to root_path }
     end
   end

@@ -2,13 +2,11 @@
 <h1>Search Analytics</h1>
 
 <div class="container">
-  <%= form_with url: searches_path, method: :post, local: true do |f| %>
-    <%= f.text_field :text, placeholder: "Type a search term...", autofocus: true %>
+  <%= form_with url: searches_path, method: :post, data: { controller: "search", turbo_stream: true }, id: "search-form" do %>
+    <%= text_field_tag :text, nil, id: "search-input", autocomplete: "off", placeholder: "Type your search...", data: { action: "input->search#submit" } %>
   <% end %>
 
-  <div id="popular-searches">
+  <turbo-frame id="popular_searches">
     <%= render partial: "popular_searches", locals: { popular_searches: @popular_searches } %>
-  </div>
-
-  <%= button_to "Clear Serches", delete_all_searches_path, method: :delete, data: { confirm: "Are you sure you want to delete all records?" }, class: "btn btn-danger" %>
+  </turbo-frame>
 </div>
